@@ -1,0 +1,14 @@
+<%= form_for [:admin, @booking] do |f| %>
+  <div class="box-body">
+    <%= render "admin/shared/error_messages", object: @booking %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-adjust style-icon"></i>
+        </span>
+        <%= f.select :status, Booking.statuses.keys, {}, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit t("submit"), class: "btn btn-primary button-full" %>
+  </div>
+<% end %>

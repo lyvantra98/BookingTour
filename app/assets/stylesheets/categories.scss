@@ -1,0 +1,50 @@
+@import 'color';
+
+.glyphicon {
+  margin-right: 5px;
+}
+.thumbnail {
+  margin-bottom: 20px;
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.item {
+  .list-group-item {
+    float: none;
+    width: 100%;
+    background-color: $whitesmoke;
+    margin-bottom: 10px;
+    .thumbnail {
+      margin-bottom: 0;
+    }
+    .caption {
+      padding: 9px 9px 0;
+    }
+    :nth-of-type(odd):hover,
+    :hover {
+      background: $lightskyblue;
+      .list-group-image {
+        margin-right: 10px;
+      }
+    }
+    :nth-of-type(odd) {
+      background: $white;
+    }
+    :before,
+    :after {
+      display: table;
+      content: " ";
+    }
+    img {
+      float: left;
+    }
+    :after {
+      clear: both;
+    }
+  }
+}
+.list-group-item-text {
+  margin: 0 0 11px;
+}

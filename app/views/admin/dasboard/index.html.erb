@@ -1,0 +1,15 @@
+<% provide :title, t("dasboard") %>
+  <div class="row">
+    <%= column_chart @bookings.group(:status).size, ytitle: "Total" %>
+    <h2 class="text-center"><%= t "booking_chart" %></h2>
+  </div>
+  <div class="row">
+    <%= line_chart @tours.group(:date_from).size, ytitle: "Total" %>
+    <h2 class="text-center"><%= t "tour_chart" %></h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+      </div>
+    </div>
+  </div>

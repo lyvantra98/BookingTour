@@ -1,0 +1,7 @@
+<%= form_for @review do |f| %>
+  <%= f.text_field :title, placeholder: t("app.review.enter_title"),
+    class: "form-control" %>
+  <%= f.text_area :content, placeholder: t("app.review.enter_content"),
+    class: "form-control" %>
+  <%= f.submit t("app.review.edit"), class: "btn btn-primary" %>
+<% end %>

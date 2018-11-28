@@ -1,0 +1,36 @@
+<h2 class="col-md-8"><%= @tour.name %></h2>
+<div class="col-md-8">
+  <% if @tour.images.present? %>
+    <% @tour.images.each do |img| %>
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <%= image_tag img.image_link.url, class: "d-block w-100" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= image_tag Settings.tours.image_demo_lg, class: "img-fluid rounded" %>
+  <% end %>
+  <hr>
+  <blockquote class="blockquote">
+    <p class="mb-0"> <%= t "tours.start" %> <%= l @tour.date_from, format: t("tours.date_format") %>
+      <%= t "tours.end" %> <%= l @tour.date_to, format: t("tours.date_format") %></p>
+    <p class="mb-0"> <%= t "tours.from" %> <%= @tour.location_from %> <%= t "tours.to" %> <%= @tour.location_to %></p>
+    <footer class="blockquote-footer">  <%= @tour.description %>
+    </footer>
+  </blockquote>
+  <hr>
+</div>
+<div class="col-md-4">
+  <div class="well">
+    <h1><%= t "app.booking.booking" %></h1>
+    <%= render "bookings/form" %>
+  </div>
+  <div class="well">
+    <h2> <%= t "list_review" %></h2>
+    <% @reviews.each do |review| %>
+      <h4><%= link_to review.title, review %></h4>
+    <% end %>
+    <%= link_to t("app.review.create"), new_tour_review_path(@tour.id), class: "btn btn-primary" %>
+  </div>
+</div>

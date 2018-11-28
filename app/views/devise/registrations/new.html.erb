@@ -1,0 +1,32 @@
+<h2><%= t "devises.singup" %></h2>
+<div class="col-lg-12 col-md-12 col-sx-12">
+  <h2 class="text-center"><%= t "devises.register" %></h2>
+</div>
+<%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="col-lg-6 col-md-6 col-sx-6">
+    <%= f.label :email, t("devises.e_mail") %><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %><br/>
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> <%= t "devises.characters_minimum" %>)</em>
+    <% end %><br/>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %><br/>
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sx-6">
+    <%= f.label :name, t("devises.name") %><br/>
+    <%= f.text_field :name, class: "form-control" %><br/>
+    <%= f.label :phone, t("devises.phone") %><br/>
+    <%= f.text_field :phone, class: "form-control" %><br/>
+    <%= f.label :address, t("devises.address") %><br/>
+    <%= f.text_field :address, class: "form-control" %><br/>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sx-12"><br>
+    <%= f.submit t("devises.register"), class: "btn btn-primary" %>
+  </div>
+<% end %>
+<div class="col-lg-12 col-md-12 col-sx-12"><br>
+   <%= render "devise/shared/links" %>
+</div>

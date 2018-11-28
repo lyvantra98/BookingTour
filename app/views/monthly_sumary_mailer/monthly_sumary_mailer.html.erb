@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta content="text/html; charset = UTF-8" http-equiv="Content-Type" />
+    <style>
+      #table_email{
+        width: 930px;
+        min-height: 100px;
+      }
+
+      #table_email, thead, tr, td{
+        border: 1px solid black;
+      }
+
+      #title{
+        font-weight: bold;
+        text-align: center;
+        font-size: 10px;
+        border: 1px solid black;
+      }
+
+      p{
+        font-size:14px;
+      }
+
+      #p_red{
+        float: right;
+        font-size: 10px;
+        color: red;
+      }
+      .name {
+        width: 300px;
+      }
+      .date{
+        width: 75px;
+        text-align: center;
+      }
+      .price {
+         text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= t "hi" %>
+    <h3><%= t "information" %> : <%= t "app_name" %></h3>
+    <table id="table_email">
+      <thead>
+        <tr id="title">
+          <th class="name"><%= t "name_tour" %></th>
+          <th class="date"><%= t "tours.date_from" %></th>
+          <th class="date"><%= t "tours.date_to" %></th>
+          <th><%= t "tours.location_from" %></th>
+          <th><%= t "tours.location_to" %></th>
+          <th><%= t "number_people" %></th>
+          <th><%= t "total_price" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <%= render partial: "booking", locals: {booking: booking} %>
+        <% end %>
+     </tbody>
+    </table>
+    <p>
+     <%= t "thank_you_for_booktour" %>
+    </p>
+  </body>
+</html>

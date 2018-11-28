@@ -1,0 +1,23 @@
+<footer id="globalFooter" class="global">
+  <div class="inner">
+
+    <div class="row spaced">
+      <div class="col contact-details">
+        <p><%= t "contact_html" %></p>
+      </div>
+
+      <div class="col social-links">
+        <ul>
+          <li><%= link_to t("facebook"), Settings.layouts.facebook, class: "uline" %></li>
+          <li>+</li>
+          <li><%= link_to t("instagram"), Settings.layouts.instagram, class: "uline" %></li>
+          <li>+</li>
+          <li><%= link_to t("google"), Settings.layouts.google, class: "uline" %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal"><p><%= t "copy_right" %></p></div>
+
+  </div>
+</footer>

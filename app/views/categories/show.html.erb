@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="col-sm-2">
+    <%= render partial: "categories/categories" %>
+  </div>
+  <div class="col-md-10">
+    <div id="products" class="row list-group">
+      <%= render partial: "tours/tour", collection: @tours %>
+    </div>
+    <div class="pagination justify-content-end">
+      <%= paginate @tours %>
+    </div>
+  </div>
+</div>

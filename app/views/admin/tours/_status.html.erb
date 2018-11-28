@@ -1,0 +1,5 @@
+ <% if tour.close? %>
+  <%= link_to t("tours.btn_close"), admin_status_path(tour),class: "btn btn-danger fa fa-close", method: :patch, remote: true %>
+  <% else %>
+  <%= link_to t("tours.btn_open"), admin_status_path(tour),class: "btn btn-success fa fa-check-circle", method: :patch, remote: true %>
+<% end %>

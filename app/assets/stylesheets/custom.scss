@@ -1,0 +1,192 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+body.app{
+  padding-top: 60px;
+  h1{
+    text-align: center;
+  }
+}
+
+#language{
+  li{
+    list-style: none;
+  }
+}
+
+.style-icon {
+  width: 13px;
+}
+
+.action {
+  width: 240px;
+}
+
+.action_booking {
+  width: 168px;
+}
+
+.btn_booking {
+  width: 80px;
+}
+
+#input_search {
+  width: 354px;
+}
+
+#icon_list {
+  color: $blue_icon;
+}
+
+.index_number {
+  width: 50px
+}
+
+.icon_add {
+  margin-right: 14px;
+}
+
+.table_color {
+  background: $black_title;
+  color: $white;
+}
+
+.pages_custom {
+  margin-right: 24px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $nordic;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace;
+
+  &:hover {
+    color: $blue_icon;
+    text-decoration: none;
+  }
+}
+
+.width_from {
+  width: 100px;
+}
+.width_local {
+  width: 111px;
+}
+
+.image_product {
+  width: 286px;
+  height: 229px;
+}
+
+.action_review {
+  width: 170px;
+}
+
+.logo {
+  color: $white;
+}
+
+#search_size {
+  margin-bottom: 6px;
+}
+
+#button-custom {
+  margin-top: 6px;
+}
+
+.button-full {
+  width: 100%;
+}
+
+#globalFooter {
+  padding-top: 75px;
+  padding-bottom: 65px;
+  background-color: $nordic;
+  color: $white;
+  padding-left: 100px;
+  padding-right: 100px;
+  .col {
+    width: 50%;
+    position: relative;
+  }
+  p {
+  font-size: 14px;
+  line-height: 1.86;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  }
+  ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  }
+  .social-links {
+    text-align: right;
+    li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    }
+  }
+  .legal {
+    opacity: .4;
+    margin-top: 30px;
+  }
+}
+
+.global {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  padding-left: 100px;
+  padding-right: 100px;
+  .inner
+  {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  p {
+    font: 300 22px/1.82 'sofia-pro', sans-serif;
+  }
+}
+
+.spaced {
+  display: flex;
+}
+
+.row {
+  width: 100%;
+  position: relative;
+}
+
+#globalFooter .social-links li ~ li {
+  margin-left: 22px;
+}
+
+#globalFooter a {
+  color: #fff;
+}
+
+a.uline {
+  position: relative;
+}
+
+#globalFooter .social-links {
+    text-align: right;
+}

@@ -1,0 +1,4 @@
+<%= form_for [@review, @comment] do |f| %>
+  <%= f.text_area :content, placeholder: t("app.comment.placeholder"), class: "form-control"%>
+  <%= f.submit t("app.comment.update"), class: "btn" %>
+<% end %>

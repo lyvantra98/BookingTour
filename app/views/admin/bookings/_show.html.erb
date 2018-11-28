@@ -1,0 +1,48 @@
+<div id="bookingModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span></button>
+        <h4 class="modal-title"><%= t "bookings.show_booking" %></h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-bordered border-user">
+           <tbody>
+            <tr>
+              <th><%= t "bookings.booking_date_from" %></th>
+              <td id="booking_date_from"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_date_to" %></th>
+              <td id="booking_date_to"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_location_from" %></th>
+              <td id="booking_location_from"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_location_to" %></th>
+              <td id="booking_location_to"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_status" %></th>
+              <td id="booking_status"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_number_people" %></th>
+              <td id="booking_number_people"></td>
+            </tr>
+            <tr>
+              <th><%= t "bookings.booking_total_price" %></th>
+              <td id="booking_total_price"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal"><%= t "tours.close" %></button>
+      </div>
+    </div>
+  </div>
+</div>

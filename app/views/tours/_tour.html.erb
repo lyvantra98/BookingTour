@@ -1,0 +1,36 @@
+<div class="col">
+  <div class="item col-md-4">
+    <div class="thumbnail">
+      <% if tour.images.present? %>
+        <%= image_tag tour.images.first.image_link.url, class: "img-thumbnail" %>
+      <% else %>
+        <%= image_tag Settings.tours.image_demo, class: "group list-group-image" %>
+      <% end %>
+      <div class="caption">
+        <h4 class="group inner list-group-item-heading text-red">
+          <%= tour.name.truncate Settings.tours.show_name %></h4>
+        <p class="group inner list-group-item-text">
+          <%= tour.description.truncate Settings.tours.show_description %></p>
+        <div class="row">
+          <div class="col-md-6">
+            <small class="lead text-red"> <%= t "tours.from" %></small>
+            <br>
+            <small class="text-bold"> <%= tour.location_from.truncate Settings.tours.show_location %> </small>
+          </div>
+          <div class="col-md-6">
+            <small class="lead text-red"> <%= t "tours.to" %></small>
+            <br>
+            <small class="text-bold"> <%= tour.location_to.truncate Settings.tours.show_location %> </small>
+          </div>
+          <div class="col-md-6">
+            <p class="lead text-red text">
+              <%= number_to_currency tour.price %></p>
+          </div>
+          <div class="col-md-6">
+            <%= link_to t("tours.view_more"), tour, class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<%= form_for [:admin, @user] do |f| %>
+  <div class= "row">
+    <%= render "admin/shared/error_messages", object: @user %>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-sx-12">
+        <div class="form-group">
+          <%= f.label :name, t("name") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-newspaper-o style-icon"></i>
+            </span>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, t("email") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope-o style-icon"></i>
+            </span>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone, t("phone") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-phone-square style-icon"></i>
+            </span>
+            <%= f.text_field :phone, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-sx-12">
+        <div class="form-group">
+          <%= f.label :address, t("address") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-globe style-icon"></i>
+            </span>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, t("password") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-unlock-alt style-icon"></i>
+            </span>
+            <%= f.text_field :password, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, t("confirmation") %><br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-unlock-alt style-icon"></i>
+            </span>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-sx-12">
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.check_box :is_admin %>
+            <span><%= t "is_admin" %></span>
+          </div>
+        </div>
+        <%= f.submit t("submit"), class: "btn btn-primary button-full" %>
+      </div>
+    </div>
+  </div>
+<% end %>

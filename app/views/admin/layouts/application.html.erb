@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %> | <%= t "app_name" %></title>
+    <%= render "admin/layouts/rails_default"%>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render "admin/layouts/header" %>
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <%= render "admin/layouts/sidebar" %>
+        </section>
+      </aside>
+      <div class="content-wrapper">
+      <section class="content">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </section>
+      </div>
+      <%= render "admin/layouts/footer" %>
+      <div class="control-sidebar-bg"></div>
+    </div>
+  </body>
+</html>
