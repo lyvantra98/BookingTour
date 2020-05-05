@@ -1,0 +1,48 @@
+<% provide :title, t("tours.show_tour") %>
+<div class="col-sm-12 col-md-12 col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><i class="fa fa-exclamation-circle icon_user"></i>
+        <%= t "show_tour" %>
+      </h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-responsive table-hover table-bordered border-user">
+        <tr>
+          <th><%= t "name" %></th>
+          <td><%= @tour.name.truncate Settings.tours.truncate %></td>
+        </tr>
+        <tr>
+          <th><%= t "tours.date_from" %></th>
+          <td><%= @tour.date_from %></td>
+        <tr>
+          <th><%= t "tours.date_to" %></th>
+          <td><%= @tour.date_to %></td>
+        </tr>
+        <tr>
+          <th><%= t "tours.location_from" %></th>
+          <td><%= @tour.location_from %></td>
+        </tr>
+        <tr>
+          <th><%= t "tours.location_to" %></th>
+          <td><%= @tour.location_to %></td>
+        </tr>
+        <tr>
+          <th><%= t "tours.price" %></th>
+          <td><%= @tour.price.round Settings.tours.round %></td>
+        </tr>
+        <tr>
+          <th><%= t "image" %></th>
+          <td>
+             <% @images.each do |img| %>
+              <%= image_tag img.image_link.url, class: "image_product" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <div class="text-right pages_custom">
+        <%= paginate @images %>
+      </div>
+    </div>
+  </div>
+</div>

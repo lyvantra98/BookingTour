@@ -1,0 +1,62 @@
+<% provide :title, t("admin_booking") %>
+<div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><i class="fa fa-list-alt icon_user" id="icon_list"></i>
+        <%= t "list_booking" %>
+      </h3>
+      <div class="box-tools">
+        <%= search_form_for [:admin, @q] do |f| %>
+        <div class="input-group input-group-sm text-right" id="input_search">
+          <%= f.text_field :tour_location_from_or_tour_location_to_cont, placeholder: t("bookings.look_for_booking"), class: "form-control" %>
+          <div class="input-group-btn">
+            <%= f.submit class: "btn btn-default fa fa-search" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-bordered">
+        <thead class="bordered-blueberry">
+          <tr>
+            <th class="text-center"><%= t "index" %></th>
+            <th class="text-center"><%= t "tours.date_from" %></th>
+            <th class="text-center"><%= t "tours.date_to" %></th>
+            <th class="text-center"><%= t "tours.location_from" %></th>
+            <th class="text-center"><%= t "tours.location_to" %></th>
+            <th class="text-center"><%= t "status" %></th>
+            <th class="text-center"><%= t "number_people" %></th>
+            <th class="text-center"><%= t "total_price" %></th>
+            <th class="text-center action_booking"><%= t "action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookings.each_with_index do |booking, index|%>
+            <tr>
+              <td><%= pages_number index, params[:page] %></td>
+              <td><%= booking.tour_date_from %></td>
+              <td><%= booking.tour_date_to %></td>
+              <td><%= booking.tour_location_from %></td>
+              <td><%= booking.tour_location_to %></td>
+              <td><%= booking.status %></td>
+              <td class="text-center"><%= booking.number_people %></td>
+              <td class="text-right"><%= (booking.number_people * booking.tour_price).round Settings.tours.round %></td>
+              <td>
+                <%= link_to t("show"), admin_booking_path(booking), class: "btn btn-primary fa fa-info-circle btn_booking", remote: true %>
+                <% if booking.waiting? %>
+                  <%= link_to t("edit"), edit_admin_booking_path(booking), class: "btn btn-success fa fa-edit"%>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        </thead>
+      </table>
+      <div class="text-right pages_custom">
+        <%= paginate @bookings%>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "show" %>

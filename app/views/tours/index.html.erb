@@ -1,0 +1,38 @@
+<div class="col-sm-2">
+  <%= render partial: "categories/categories" %>
+</div>
+<div class="col-md-10">
+  <div class=" row well-sm">
+    <%= search_form_for @q do |f| %>
+      <div class="col-sm-12">
+        <%= f.search_field :name_or_location_from_or_location_to_cont_any,
+          class: "form-control", placeholder: t("tours.name"), id: "search_size"%>
+      </div>
+      <div class="col-sm-6">
+        <%= f.search_field :price_gt, class: "form-control", placeholder: t("tours.price_greater_than") %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.search_field :price_lt, class: "form-control", placeholder: t("tours.price_less_than") %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.label t("tours.from_date") %>
+        <%= f.search_field :date_from_gt, class: "form-control", data: {provide: "datepicker"} %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.label t("tours.to_date") %>
+        <%= f.search_field :date_to_lt, class: "form-control", data: {provide: "datepicker"} %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.submit t("tours.search"), class: "btn btn-block btn-primary", id: "button-custom" %>
+      </div>
+    <% end %>
+  </div>
+  <div id="products" class="row list-group">
+    <% if @tours.present? %>
+      <%= render partial: "tours/tour", collection: @tours %>
+    <% end %>
+  </div>
+  <div class="pagination justify-content-end">
+    <%= paginate @tours %>
+  </div>
+</div>

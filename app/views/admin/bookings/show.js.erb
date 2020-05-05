@@ -1,0 +1,8 @@
+$('#booking_date_from').text("<%= @booking.tour_date_from %>")
+$('#booking_date_to').text("<%= @booking.tour_date_to %>")
+$('#booking_location_from').text("<%= @booking.tour_location_from %>")
+$('#booking_location_to').text("<%= @booking.tour_location_to %>")
+$('#booking_status').text("<%= @booking.status %>")
+$('#booking_number_people').text("<%= @booking.number_people %>")
+$('#booking_total_price').text("<%= (@booking.number_people * @booking.tour_price).round Settings.tours.round %>")
+$('#bookingModal').modal();

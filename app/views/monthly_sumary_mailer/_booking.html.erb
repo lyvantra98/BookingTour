@@ -1,0 +1,9 @@
+<tr>
+  <td><%= booking.tour_name %></td>
+  <td><%= booking.tour_date_from %></td>
+  <td><%= booking.tour_date_to %></td>
+  <td><%= booking.tour_location_from %></td>
+  <td><%= booking.tour_location_to %></td>
+  <td class="price"><%= booking.number_people %></td>
+  <td class="price"><%= (booking.tour_price * booking.number_people).round Settings.tours.round %></td>
+</tr>

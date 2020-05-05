@@ -1,0 +1,26 @@
+<h1>
+  <%= @review.title %>
+</h1>
+<p>
+  <%= @review.content %>
+</p>
+<% if current_user? @review.user %>
+  <%= link_to t("app.review.edit"), edit_review_path(@review.id), class: "btn btn-primary" %>
+<% end %>
+<br>
+<br>
+<h3><%= t "app.comment.comment" %></h3>
+<% if current_user %>
+  <%= form_for([@review, @comment]) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+      <%= f.text_area :content, placeholder: t("app.comment.placeholder"),
+        class: "form-control" %>
+      <%= f.submit t("app.comment.comment"), class: "btn" %>
+    </div>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <%= render partial: "comment", :object => comment %>
+<% end %>

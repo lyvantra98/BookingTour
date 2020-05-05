@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= t "tour_name" %></th>
+      <th><%= t "app.review.title" %></th>
+      <th><%= t "app.review.created_at" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @reviews.present? %>
+      <%= render partial: "reviews/review", collection: @reviews %>
+    <% else %>
+      <h3><%= t "app.review.no_record" %></h3>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination justify-content-end">
+  <%= paginate @reviews %>
+</div>

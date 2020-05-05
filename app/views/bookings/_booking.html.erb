@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to booking.tour_name, tour_path(booking.tour.id) %></td>
+  <td><%= booking.number_people %></td>
+  <td><%= l booking.created_at, format: t("tours.datetime_format") %></td>
+  <td><%= booking.status %></td>
+  <% if booking.waiting? %>
+    <td>
+      <%= link_to t("edit"), edit_booking_path(booking.id), class: "btn btn-primary"  %>
+    </td>
+  <% end %>
+</tr>

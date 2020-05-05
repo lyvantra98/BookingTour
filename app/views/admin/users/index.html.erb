@@ -1,0 +1,58 @@
+<% provide :title, t("admin_user") %>
+<div class="col-sm-12 col-md-12 col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><i class="fa fa-list-alt icon_user" id="icon_list"></i><%= t "list_admin" %></h3>
+      <div class="box-tools">
+        <%= form_tag admin_users_path, method: :get, class: "form-inline" do |f| %>
+          <div class="input-group input-group-sm text-right" id="input_search">
+            <%= text_field_tag  :name, nil, name: "user_list[name]", placeholder: t("look_for_user"), class: "form-control" %>
+            <div class="input-group-btn">
+              <%= button_tag :submit, class: "btn btn-default fa fa-search" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-bordered border-user">
+        <thead class="bordered-blueberry table_color">
+          <tr>
+            <th class="index_number"><%= t "index" %></th>
+            <th><%= t "name" %></th>
+            <th><%= t "email" %></th>
+            <th><%= t "phone" %></th></th>
+            <th><%= t "address" %></th>
+            <th><%= t "is_admin" %></th>
+            <th class="text-right"><%= link_to t("add"), new_admin_user_path, class: "btn btn-primary fa fa-user-plus icon_add" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each_with_index do |user, index| %>
+          <tr>
+            <td><%= pages_number index, params[:page] %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.address %></td>
+            <td><%= user.is_admin == true ? "True" : "False" %></td>
+            <td class="action">
+              <%= link_to t("show"), admin_user_path(user), class: "btn btn-info fa fa-info-circle", remote: true %>
+              <%= link_to t("edit"), edit_admin_user_path(user), class: "btn btn-success fa fa-edit"%>
+              <% unless user.is_admin == true %>
+                <%= link_to t("del"), admin_user_path(user), class: "btn btn-danger fa fa-trash", method: :delete,
+                  data: {confirm: t("are_you_sure")} %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        </thead>
+      </table>
+      <div class="text-right pages_custom">
+        <%== pagy_nav(@pagy) %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "show" %>

@@ -1,0 +1,8 @@
+<%= form_for [@tour, @review] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.text_field :title, placeholder: t("app.review.enter_title"),
+    class: "form-control" %>
+  <%= f.text_area :content, placeholder: t("app.review.enter_content"),
+    class: "form-control" %>
+  <%= f.submit t("app.review.create"), class: "btn btn-primary" %>
+<% end %>

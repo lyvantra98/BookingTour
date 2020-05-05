@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to review.tour_name, tour_path(review.tour_id) %></td>
+  <td><%= link_to review.title, review %></td>
+  <td><%= l review.created_at, format: t("tours.datetime_format") %></td>
+  <td>
+    <%= link_to t("edit"), edit_review_path(review), class: "btn btn-primary" %>
+  </td>
+  <td>
+    <%= link_to t("del"), review_path(review), method: :delete,
+      data: {confirm: t("are_you_sure")}, class: "btn btn-danger" %>
+  </td>
+</tr>

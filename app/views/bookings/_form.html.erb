@@ -1,0 +1,5 @@
+<%= form_for [@tour, @booking] do |f| %>
+  <%= render "shared/error_messages",  object: f.object %>
+  <%= f.number_field :number_people, class: "form-control", placeholder: t("app.booking.placeholder_number_people") %>
+  <%= f.submit t("app.booking.booking"), class: "btn btn-primary btn-block", data: {confirm: t("app.booking.data_confirm")} %>
+<% end %>

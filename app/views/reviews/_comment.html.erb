@@ -1,0 +1,22 @@
+<li class="comment">
+  <span class="text-uppercase text-blue"> <%= comment.user_name %></span>
+  <%= comment.content %>
+  <% if current_user %>
+    <% if comment_user? comment %>
+      <%= link_to t("edit"), edit_review_comment_path(@review, comment) %>
+      <%= link_to t("del"), review_comment_path(@review, comment), method: :delete,
+        data: {confirm: t("are_you_sure")}, class: "btn btn-danger" %>
+    <% else %>
+      <% if is_admin? %>
+        <%= link_to t("del"), review_comment_path(@review, comment), method: :delete,
+          data: {confirm: t("are_you_sure")}, class: "btn btn-danger" %>
+      <% end %>
+    <% end %>
+    <%= render "form_comment", comment: comment %>
+  <% end %>
+  <% if comment.children.present? %>
+    <ul>
+      <%= render partial: "comment", collection: comment.children %>
+    </ul>
+  <% end %>
+</li>

@@ -1,0 +1,13 @@
+<%= form_for @booking do |f| %>
+  <div class="box-body">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-users style-icon"></i>
+        </span>
+        <%= f.text_field :number_people, placeholder: t("number_people"), class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>

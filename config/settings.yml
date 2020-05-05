@@ -1,0 +1,27 @@
+size:
+  length_max_255: 255
+  length_max_name: 100
+  min_password: 6
+  text_2000: 2000
+number:
+  cate: 90
+  tour: 42.41
+  booking: 760
+  view: 2000
+  time_send_mail: 10
+tours:
+  per_page: 9
+  show_name: 28
+  show_description: 35
+  show_location: 15
+  image_demo_lg: "http://placehold.it/760x300"
+  image_demo: "http://placehold.it/400x250/000/fff"
+  price_row: 2
+  status: 1
+  truncate: 20
+  round: 2
+page:
+  page_number_admin: 5
+  page_number_img: 3
+reviews:
+  truncate_content: 200

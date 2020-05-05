@@ -1,0 +1,121 @@
+<%= form_for [:admin, @tour] do |f| %>
+  <div class="box-body">
+    <%= render "admin/shared/error_messages", object: @tour %>
+    <div class="col-sm-6 col-md-6 col-sx-12">
+      <div class="form-group">
+        <%= f.label :status, t("status") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-adjust style-icon"></i>
+          </span>
+          <%= f.select :status, Tour.statuses.keys, {}, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, t("name") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-newspaper-o style-icon"></i>
+          </span>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :date_from, ("Date - from") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar style-icon"></i>
+          </span>
+          <%= f.date_field :date_from, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+       <%= f.label :date_to, t("tours.date_to") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar style-icon"></i>
+          </span>
+          <%= f.date_field :date_to, class: "form-control" %>
+        </div>
+      </div>
+       <div class="form-group">
+        <%= f.label :price, t("tours.price") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-shopping-basket style-icon"></i>
+          </span>
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.fields_for :images do |p| %>
+        <div class="field">
+          <%= p.label :image_link %><br>
+          <%= p.file_field :image_link, multiple: true, name: "images[image_link][]", class: "upload-image",
+            accept: "image/jpeg,image/gif,image/png" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-sx-12">
+     <div class="form-group">
+        <%= f.label :location_from, t("tours.location_from") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-map-marker style-icon"></i>
+          </span>
+          <%= f.text_field :location_from, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :location_to, t("tours.location_to") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-map-marker style-icon"></i>
+          </span>
+          <%= f.text_field :location_to, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :max_people, t("tours.max_people") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user-circle-o style-icon"></i>
+          </span>
+          <%= f.text_field :max_people, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :min_people, t("tours.min_people") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user-circle style-icon"></i>
+          </span>
+          <%= f.text_field :min_people, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, t("tours.description") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-commenting-o style-icon"></i>
+          </span>
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :Category, t("category") %><br>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-list-alt style-icon"></i>
+          </span>
+          <%= f.select :category_id, @categories.collect {|c| [c.name, c.id]},
+            {}, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-sx-12">
+       <%= f.submit t("submit"), class: "btn btn-primary button-full" %>
+    </div>
+  </div>
+<% end %>

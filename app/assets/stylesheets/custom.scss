@@ -1,0 +1,99 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+body.app{
+  padding-top: 60px;
+  h1{
+    text-align: center;
+  }
+}
+
+.style-icon {
+  width: 13px;
+}
+
+.action {
+  width: 240px;
+}
+
+.action_booking {
+  width: 168px;
+}
+
+.btn_booking {
+  width: 80px;
+}
+
+#input_search {
+  width: 354px;
+}
+
+#icon_list {
+  color: $blue_icon;
+}
+
+.index_number {
+  width: 50px
+}
+
+.icon_add {
+  margin-right: 14px;
+}
+
+.table_color {
+  background: $black_title;
+  color: $white;
+}
+
+.pages_custom {
+  margin-right: 24px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $lightskyblue;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+
+  &:hover {
+    color: $blue_icon;
+    text-decoration: none;
+  }
+}
+
+.width_from {
+  width: 100px;
+}
+.width_local {
+  width: 111px;
+}
+
+.image_product {
+  width: 286px;
+  height: 229px;
+}
+
+.action_review {
+  width: 170px;
+}
+
+.logo {
+  color: $white;
+}
+
+#search_size {
+  margin-bottom: 6px;
+}
+
+#button-custom {
+  margin-top: 6px;
+}
+
+.button-full {
+  width: 100%;
+}

@@ -1,0 +1,53 @@
+<% provide :title, t("admin_review") %>
+<div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><i class="fa fa-list-alt icon_user" id="icon_list"></i>
+        <%= t "list_review" %>
+      </h3>
+      <div class="box-tools">
+        <%= search_form_for [:admin, @q] do |f| %>
+        <div class="input-group input-group-sm text-right" id="input_search">
+          <%= f.text_field :user_name_or_title_cont, placeholder: t("reviews.look_for_review"), class: "form-control" %>
+          <div class="input-group-btn">
+            <%= f.submit class: "btn btn-default fa fa-search" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-bordered">
+        <thead class="bordered-blueberry">
+          <tr>
+            <th><%= t "index" %></th>
+            <th><%= t "name" %></th>
+            <th><%= t "reviews.title" %></th>
+            <th><%= t "reviews.content" %></th>
+            <th><%= t "action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each_with_index do |review, index|%>
+          <tr>
+            <td><%= pages_number index, params[:page] %></td>
+            <td><%= review.user_name %></td>
+            <td><%= review.title %></td>
+            <td><%= review.content.truncate Settings.reviews.truncate_content %></td>
+            <td class="action_review text-center">
+              <%= link_to t("show"), admin_review_path(review), class: "btn btn-primary fa fa-info-circle " %>
+              <%= link_to t("del"), admin_review_path(review),
+                method: :delete, data: {confirm: t("are_you_sure")},
+                class: "btn btn-danger fa fa-trash" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        </thead>
+      </table>
+      <div class="text-right pages_custom">
+        <%= paginate @reviews %>
+      </div>
+    </div>
+  </div>
+</div>

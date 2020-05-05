@@ -1,0 +1,6 @@
+<%= form_for [@review, @comment] do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :parent_id, value: comment.id %>
+    <%= f.text_area :content, placeholder: t("app.comment.placeholder"), class: "form-control"%>
+  <%= f.submit t("app.comment.reply"), class: "btn" %>
+<% end %>
