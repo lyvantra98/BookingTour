@@ -1,3 +1,7 @@
+layouts:
+  facebook: "https://www.facebook.com/"
+  instagram: "https://www.instagram.com/"
+  google: "https://www.google.com/"
 size:
   length_max_255: 255
   length_max_name: 100

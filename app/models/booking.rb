@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :tour
 
   enum status: %i(waiting accepted deny)
-  validates :number_people, presence: true, numericality: true
+  validates :number_people, presence: true, numericality: { greater_than: 0 }
 
   delegate :name, :date_from, :date_to, :location_from, :location_to, :price, :to => :tour, :prefix => true
   delegate :name, :to => :user, :prefix => true

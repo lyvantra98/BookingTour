@@ -2,6 +2,10 @@
   <div class="container">
     <%= link_to t("app_name"), root_path, id: "logo" %>
     <nav>
+      <ul class="navbar-right" id="language">
+        <li><%= link_to "VN", locale:"vi" %></li>
+        <li><%= link_to "EN", locale:"en" %></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to t("app.home"), root_path %>

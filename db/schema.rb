@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2018_12_12_023116) do
 
-  create_table "bookings", force: :cascade do |t|
+  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0
     t.integer "number_people"
-    t.integer "user_id"
-    t.integer "tour_id"
+    t.bigint "user_id"
+    t.bigint "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tour_id", "created_at"], name: "index_bookings_on_tour_id_and_created_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.integer "lft", null: false
@@ -39,15 +39,15 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["rgt"], name: "index_categories_on_rgt"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.integer "parent_id"
     t.integer "lft", null: false
     t.integer "rgt", null: false
     t.integer "depth", default: 0, null: false
     t.integer "children_count", default: 0, null: false
-    t.integer "user_id"
-    t.integer "review_id"
+    t.bigint "user_id"
+    t.bigint "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lft"], name: "index_comments_on_lft"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "delayed_jobs", force: :cascade do |t|
+  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
@@ -74,31 +74,31 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_link"
-    t.integer "tour_id"
+    t.bigint "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tour_id", "created_at"], name: "index_images_on_tour_id_and_created_at"
     t.index ["tour_id"], name: "index_images_on_tour_id"
   end
 
-  create_table "likes", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "review_id"
+    t.bigint "user_id"
+    t.bigint "review_id"
     t.index ["review_id", "created_at"], name: "index_likes_on_review_id_and_created_at"
     t.index ["review_id"], name: "index_likes_on_review_id"
     t.index ["user_id", "created_at"], name: "index_likes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "user_id"
-    t.integer "tour_id"
+    t.bigint "user_id"
+    t.bigint "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tour_id", "created_at"], name: "index_reviews_on_tour_id_and_created_at"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "tours", force: :cascade do |t|
+  create_table "tours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 1, null: false
     t.string "name"
     t.date "date_from"
@@ -118,14 +118,14 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.integer "max_people"
     t.integer "min_people"
     t.text "description"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id", "created_at"], name: "index_tours_on_category_id_and_created_at"
     t.index ["category_id"], name: "index_tours_on_category_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.string "address"
@@ -146,4 +146,14 @@ ActiveRecord::Schema.define(version: 2018_12_12_023116) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "tours"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
+  add_foreign_key "images", "tours"
+  add_foreign_key "likes", "reviews"
+  add_foreign_key "likes", "users"
+  add_foreign_key "reviews", "tours"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "tours", "categories"
 end

@@ -1,7 +1,7 @@
 en:
   hello: "Hello world"
   app_name: "Booking Tour"
-  copy_right: "Copyright 2014-2016"
+  copy_right: "Copyright 2020"
   logout: "Logout"
   logo_mini: "BT"
   logo_lg: "admin"
@@ -19,6 +19,12 @@ en:
   name: "Name"
   email: "Email"
   phone: "Phone"
+  facebook: "Facebook"
+  instagram: "Instagram"
+  google: "Google"
+  contact_html: 'Booking Tour<br>
+        <a href="mailto:hello@griflan.com">hello@gmail.com</a> <span class="vline-div dsk">•</span> +84123456789 <span class="vline-div">•</span> +84987654321<br>
+        459, Ton Duc Thang,Lien Chieu, Da Nang'
   address: "Address"
   action: "Action"
   confirmation: "Confirmation"
@@ -84,6 +90,14 @@ en:
   hi: "Hi"
   name_tour: "Tour name"
   profile: "Profile"
+  total_price: "Total price"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"
   tours:
     posted_on: "Posted on: "
     start: "Start_at"
@@ -104,7 +118,6 @@ en:
     date_from: "Date From - To"
     location_from: "Location From - To"
     price: "Price"
-    max_people: "Max - Min People"
     desciption: "Description"
     status: "Status"
     btn_close: " Close"
@@ -130,8 +143,6 @@ en:
     price: "Price"
     min_people: "Min people"
     max_people: "Max people"
-    price: "Price"
-    description: "Desription"
   bookings:
     total_price: "Total price"
     status: " Action status"

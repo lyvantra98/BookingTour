@@ -2,7 +2,7 @@ User.create!(name: "admin",
   email: "admin@gmail.com",
   password: "12345678",
   password_confirmation: "12345678",
-  phone: "+84965116895",
+  phone: "0333422230",
   address: "Hà Nội",
   is_admin: true)
 2.times do |n|
